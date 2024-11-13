@@ -28,6 +28,9 @@ jobs:
       - name: Setup @antfu/ni
         run: npm i -g @antfu/ni
 
+      - name: Install theme
+        run: npm i -g slidev-theme-vuetiful --legacy-peer-deps
+
       - name: Install dependencies
         run: nci --legacy-peer-deps
 
