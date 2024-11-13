@@ -16,7 +16,7 @@ author: Edouard MANGEL
 # keywords field for exported PDF, comma-delimited
 keywords: CNAM UTC503, Déclarative Programming, F#
 layout: cover
-background: "../images/background-1.png"
+background: "/background-1.png"
 ---
 
 <style>
@@ -76,18 +76,18 @@ layout: center
 
 # Qu'est-ce qu'une instruction ?
 
-<v-clicks>
+<v-clicks depth="2">
 
 C'est une commande qui indique à l'ordinateur **comment** effectuer une tâche.
 
 Par exemple: 
-
 - Affecter une valeur à une variable
+
 - Exécuter une opération arithmétique
+
 - Modifier l'état d'une structure de données
 
 </v-clicks>
-
 
 ---
 layout: center
@@ -201,4 +201,3 @@ layout: fact
 Adopter un style fonctionnel permet de créer un code plus prévisible, modulable et adapté aux environnements complexes du monde réel.
 
 ---
-
