@@ -1,0 +1,24 @@
+{
+  "name": "fsharpexamples",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "slidev build",
+    "dev": "slidev --open",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^0.50.0-beta.5",
+    "@slidev/theme-default": "latest",
+    "@slidev/theme-seriph": "latest",
+    "slidev-theme-purplin": "^1.2.0",
+    "slidev-theme-vuetiful": "^0.3.1",
+    "vue": "^3.5.12"
+  },
+  "slidev": {
+    "defaults": {
+      "transition": "slide-left",
+      "background-image": "linear-gradient(160deg, #00308f 0%, #0093e9 100%)"
+    }
+  }
+}
