@@ -72,6 +72,11 @@ La programmation fonctionnelle repose sur les fonctions pures, l’immuabilité,
 
 - **Exemples** : Haskell, Lisp, et certains aspects de JavaScript (fonctions `map`, `filter`, `reduce`)
 - **Caractéristiques** : Favorise la lisibilité et la réutilisabilité. Utilisée dans les calculs mathématiques et les transformations de données.
+- **Avantages** : Fiabilité accrue, testabilité, et facilité de parallélisme.
+
+Depuis quelques années, la programmation fonctionnelle a gagné en popularité, notamment grâce à des langages hybrides comme F# et Scala.
+
+De plus, les langages et les frameworks modernes intègrent de plus en plus de concepts fonctionnels.
 
 </v-clicks>
 
@@ -274,11 +279,20 @@ layout: two-cols-header
 # 1. Fiabilité accrue du code
 Un des principaux avantages de la programmation fonctionnelle est son potentiel à améliorer la fiabilité du code. 
 
-<v-clicks>
+<v-click>
 
 En utilisant des fonctions pures et l'immutabilité, les développeurs peuvent minimiser les effets de bord. Cela conduit à moins de bogues et rend le code plus facile à tester. 
 
-Lorsque les fonctions ne modifient pas l'état du programme, vous pouvez avoir plus confiance qu'elles se comporteront comme prévu.
+</v-click>
+
+<v-clicks>
+
+### Fonctions Pures
+Toute fonction qui, pour un même ensemble d'entrées, produit toujours le même résultat et n'a aucun effet de bord.
+
+- **Caractéristiques** : Pas d'effet de bord, retour de valeurs constantes pour des entrées identiques.
+- **Avantages** : Prévisibilité, testabilité et optimisation facilitée.
+- **Exemples** :
 
 </v-clicks>
 
@@ -384,12 +398,13 @@ layout: default
 
 # 2. Débogage et test plus faciles
 
-Puisque la programmation fonctionnelle met l'accent sur les fonctions pures, le débogage devient une tâche plus simple. 
+Puisque la programmation fonctionnelle met l'accent sur les fonctions pures et l'immuabilité, le débogage devient une tâche plus simple. 
 
 Vous pouvez isoler les fonctions et les tester indépendamment sans vous soucier de l'état de l'ensemble de l'application. 
 
 Cette modularité permet des tests unitaires plus efficaces.
 
+Ils sont aussi plus rapides à écrire car c'est plus facile de générer des données d'entrée qu'un contexte tout entier. 
 
 ---
 layout: default
@@ -462,6 +477,25 @@ Cette modularité non seulement fait gagner du temps mais favorise aussi la réu
 
 </v-clicks>
 
+<v-click>
+
+Exemple en F# d'une fonction qui prend une liste de nombres et retourne la somme des carrés des nombres pairs.
+```fsharp
+let sumOfSquaresOfEvenNumbers numbers =
+    numbers
+    |> List.filter (fun x -> x % 2 = 0)
+    |> List.map (fun x -> x * x)
+    |> List.sum
+```
+
+</v-click>
+
+<v-click>
+
+Les fonctions `filter`, `map` et `sum` peuvent être réutilisées pour d'autres opérations.
+
+</v-click>
+
 
 ---
 layout: two-cols-header
@@ -524,6 +558,92 @@ Pour pouvoir adopter un style fonctionnel, il est important de comprendre les co
 <!--
 Ne pas passer de temps ici, on détaille tout après.
 -->
+
+---
+
+# Immuabilité 
+L'immutabilité signifie que les données ne peuvent pas être modifiées après leur création.
+
+**Avantages** : 
+<v-clicks>
+
+- Réduit les effets de bord, facilite le débogage, rend le code plus prévisible.
+- Permet le partage de données sans risque de corruption.
+- Facilite la programmation concurrente et parallèle.
+- Evite les effets secondaires indésirables ou imprévus.
+
+</v-clicks>
+
+---
+
+# Fonctions d’ordre supérieur
+
+Les fonctions d’ordre supérieur sont des fonctions qui acceptent une ou plusieurs fonctions comme arguments et/ou renvoient une fonction.
+
+<v-clicks>
+
+Les fonctions d’ordre supérieur sont utiles dans la programmation fonctionnelle car elles permettent :
+- de combiner plusieurs fonctions pour en créer de nouvelles, 
+- d’utiliser des callbacks, d’abstraire des modèles courants en fonctions réutilisables 
+- d’écrire un code plus concis et plus expressif.
+
+</v-clicks>
+
+---
+
+# Composition de fonctions
+
+La composition de fonctions consiste à combiner plusieurs fonctions pour créer une nouvelle fonction.
+
+<v-clicks>
+
+C'est un concept clé de la programmation fonctionnelle, car elle permet de créer des transformations de données complexes en combinant des fonctions simples.
+
+La composition de fonctions permet de réduire la complexité du code et de le rendre plus lisible et réutilisable.
+
+Au lieu d'avoir une longue séquence d'instructions, vous pouvez composer des fonctions pour créer des pipelines de traitement de données.
+
+Cela permet de séparer les préoccupations et de créer des fonctions plus petites et plus spécialisées.
+
+</v-clicks>
+
+<v-click>
+
+Exemple en F# : 
+```fsharp
+let ajouter1 x = x + 1
+let doubler x = x * 2
+let ajouterEtDoubler = doubler << ajouter1 // composition de fonctions
+```
+
+</v-click>
+
+---
+
+# Récursivité
+Une fonction récursive est une fonction qui s'appelle elle-même jusqu'à une condition d'arrêt précise.
+
+<v-clicks>
+
+La récursivité est un concept clé de la programmation fonctionnelle, car elle permet de résoudre des problèmes de manière élégante et concise.
+
+La récursivité est souvent utilisée pour parcourir des structures de données imbriquées, comme les arbres ou les listes.
+
+</v-clicks>
+
+<v-click>
+
+Exemple en F# : 
+```fsharp
+let rec factorielle n =
+    if n <= 1 then 1 // cas de base
+    else n * factorielle (n - 1) // appel récursif
+```
+
+</v-click>
+
+
+
 
 
 ---
