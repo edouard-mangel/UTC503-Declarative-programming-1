@@ -261,10 +261,64 @@ SELECT name FROM students WHERE age > 18;
 **Déclarative (F#)**:
 
 ```fsharp
-students |> List.filter (fun s -> s.Age > 18) |> List.map (fun s -> s.Name)
+students 
+|> List.filter (fun s -> s.Age > 18) 
+|> List.map (fun s -> s.Name)
 ```
 
 </v-click>
+
+--- 
+layout: two-cols-header
+--- 
+
+# La somme des carrés d'une liste de nombres en utilisant une approche impérative et déclarative
+
+### Le code est beaucoup plus concis et lisible en utilisant une approche déclarative.
+
+::left::
+En C# :
+
+```csharp
+public class MathUtils {
+    public int SumOfSquares(List<int> numbers) {
+        int sum = 0;
+        foreach (int number in numbers) {
+            sum += number * number;
+        }
+        return sum;
+    }
+}
+
+```
+
+::right::
+
+<v-click>
+
+En F# :
+
+```fsharp
+let sumOfSquares numbers = numbers 
+                            |> List.map (fun x -> x * x) 
+                            |> List.sum
+```
+
+</v-click>
+
+---
+zoom: 1.2
+---
+
+# En C# avec une approche impérative avec LINQ
+
+```csharp
+public class MathUtils {
+    public int SumOfSquares(List<int> numbers) {
+        return numbers.Select(x => x * x).Sum();
+    }
+}
+```
 
 ---
 layout: section
@@ -285,12 +339,19 @@ En utilisant des fonctions pures et l'immutabilité, les développeurs peuvent m
 
 </v-click>
 
-<v-clicks>
+---
+layout: two-cols-header
+---
 
-### Fonctions Pures
+# Fonctions Pures
 Toute fonction qui, pour un même ensemble d'entrées, produit toujours le même résultat et n'a aucun effet de bord.
 
-- **Caractéristiques** : Pas d'effet de bord, retour de valeurs constantes pour des entrées identiques.
+<v-clicks>
+
+On parle de « referential transparency », c’est-à-dire qu’on peut remplacer par la valeur qu’elle renvoie sans modifier l’état du système. 
+
+Ceci veut dire qu’elles n’ont aucun effet de bord.
+
 - **Avantages** : Prévisibilité, testabilité et optimisation facilitée.
 - **Exemples** :
 
@@ -313,7 +374,7 @@ let add x y = x + y
 
 C# : 
 ```csharp   
-int add(int x, int y) {
+int Ajouter(int x, int y) {
     return x + y;
 }
 ```
