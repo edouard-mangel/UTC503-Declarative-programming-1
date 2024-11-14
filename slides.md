@@ -310,12 +310,15 @@ let sumOfSquares numbers = numbers
 zoom: 1.2
 ---
 
-# En C# avec une approche impérative avec LINQ
+# En C# avec une approche déclarative avec LINQ
 
 ```csharp
 public class MathUtils {
     public int SumOfSquares(List<int> numbers) {
-        return numbers.Select(x => x * x).Sum();
+        return numbers
+                .Select(x => x * x) // Equivalent de List.map, crée une nouvelle liste. 
+                .Sum()              // Fait la somme des éléments de la nouvelle liste. 
+                ;
     }
 }
 ```
@@ -702,9 +705,6 @@ let rec factorielle n =
 ```
 
 </v-click>
-
-
-
 
 
 ---
